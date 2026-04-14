@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng Đi v4 — Organic Content Machine (US/UK/AU/EU)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+
+  .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1a1a2e 100%); padding: 60px 40px 40px; text-align: center; border-bottom: 1px solid #334155; }
+  .hero h1 { font-size: 2.2rem; color: #f8fafc; margin-bottom: 8px; }
+  .hero .subtitle { font-size: 1.05rem; color: #94a3b8; max-width: 700px; margin: 0 auto; }
+  .hero .badges { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .badge { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 0.82rem; }
+  .bg { background: #059669; color: #fff; }
+  .bb { background: #2563eb; color: #fff; }
+  .bp { background: #7c3aed; color: #fff; }
+  .bo { background: #d97706; color: #fff; }
+  .br { background: #dc2626; color: #fff; }
+
+  .container { max-width: 1440px; margin: 0 auto; padding: 40px 24px; }
+  .section { margin-bottom: 52px; }
+  .section-title { font-size: 1.5rem; color: #f8fafc; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #334155; }
+  .section-desc { color: #94a3b8; font-size: 0.92rem; margin-bottom: 20px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px; }
+  .card h4 { margin-bottom: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+
+  .audience-card { background: linear-gradient(135deg, #1e3a5f, #1e293b); border: 1px solid #334155; border-radius: 16px; padding: 32px; margin-bottom: 40px; }
+  .audience-card h2 { color: #60a5fa; font-size: 1.4rem; margin-bottom: 16px; }
+  .audience-item { background: rgba(255,255,255,0.05); padding: 14px 16px; border-radius: 10px; border-left: 3px solid #3b82f6; }
+  .audience-item .label { font-size: 0.76rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+  .audience-item .value { font-size: 0.93rem; color: #f1f5f9; margin-top: 3px; }
+
+  .insight-box { background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.3); border-radius: 12px; padding: 24px; margin-bottom: 40px; text-align: center; }
+  .insight-box .icon { font-size: 2rem; }
+  .insight-box p { font-size: 1.12rem; color: #fbbf24; font-weight: 600; margin-top: 8px; }
+  .insight-box .sub { font-size: 0.88rem; color: #d4a017; margin-top: 4px; }
+
+  .note-banner { border-radius: 12px; padding: 16px 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .note-banner .n-icon { color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+  .note-banner .n-text { font-size: 0.88rem; }
+  .nb-orange { background: rgba(217,119,6,0.08); border: 1px solid rgba(217,119,6,0.25); }
+  .nb-orange .n-icon { background: #d97706; }
+  .nb-orange .n-text { color: #fcd34d; }
+  .nb-green { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.25); }
+  .nb-green .n-icon { background: #059669; }
+  .nb-green .n-text { color: #6ee7b7; }
+  .nb-red { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); }
+  .nb-red .n-icon { background: #dc2626; }
+  .nb-red .n-text { color: #fca5a5; }
+  .nb-blue { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.25); }
+  .nb-blue .n-icon { background: #2563eb; }
+  .nb-blue .n-text { color: #93c5fd; }
+
+  /* PLATFORM */
+  .platform-card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; overflow: hidden; transition: transform 0.2s; }
+  .platform-card:hover { transform: translateY(-2px); }
+  .platform-header { padding: 20px 24px 12px; display: flex; align-items: center; gap: 12px; }
+  .platform-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .fb .platform-icon { background: #1877f2; }
+  .ig .platform-icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .yt .platform-icon { background: #ff0000; }
+  .platform-name { font-size: 1.15rem; font-weight: 700; color: #f1f5f9; }
+  .platform-role { font-size: 0.78rem; color: #94a3b8; }
+  .platform-body { padding: 0 24px 20px; }
+  .platform-body ul { list-style: none; }
+  .platform-body li { padding: 5px 0; font-size: 0.86rem; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  .platform-body li:last-child { border: none; }
+  .platform-body li::before { content: '▸'; color: #60a5fa; flex-shrink: 0; }
+  .platform-freq { background: rgba(96,165,250,0.1); color: #60a5fa; padding: 8px 16px; border-radius: 8px; margin-top: 10px; font-size: 0.82rem; font-weight: 600; text-align: center; }
+
+  /* SOURCE */
+  .source-card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 20px; }
+  .source-card .src-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .source-card .src-num { background: #7c3aed; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+  .source-card .src-name { font-size: 1rem; font-weight: 700; color: #c084fc; }
+  .source-card .src-why { font-size: 0.78rem; color: #a78bfa; font-style: italic; margin-bottom: 8px; }
+  .source-card ul { list-style: none; }
+  .source-card li { padding: 3px 0; font-size: 0.84rem; color: #cbd5e1; }
+  .source-card li::before { content: '▸ '; color: #a78bfa; }
+  .source-card .src-filter { background: rgba(167,139,250,0.1); padding: 8px 14px; border-radius: 8px; margin-top: 10px; font-size: 0.8rem; color: #c4b5fd; }
+
+  /* PIPELINE */
+  .pipe-container { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 28px; overflow-x: auto; }
+  .pipe { display: flex; align-items: stretch; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .pipe-step { border: 2px solid #3b82f6; border-radius: 12px; padding: 16px 18px; min-width: 160px; text-align: center; background: rgba(59,130,246,0.06); display: flex; flex-direction: column; justify-content: center; }
+  .pipe-step h5 { color: #60a5fa; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; }
+  .pipe-step p { color: #cbd5e1; font-size: 0.76rem; margin-top: 4px; }
+  .pipe-step.purple { border-color: #7c3aed; background: rgba(124,58,237,0.06); }
+  .pipe-step.purple h5 { color: #a78bfa; }
+  .pipe-step.green { border-color: #059669; background: rgba(5,150,105,0.06); }
+  .pipe-step.green h5 { color: #34d399; }
+  .pipe-step.yellow { border-color: #d97706; background: rgba(217,119,6,0.06); }
+  .pipe-step.yellow h5 { color: #fbbf24; }
+  .pipe-step.red { border-color: #dc2626; background: rgba(220,38,38,0.06); }
+  .pipe-step.red h5 { color: #f87171; }
+  .pipe-arrow { color: #475569; font-size: 1.4rem; padding: 0 6px; flex-shrink: 0; display: flex; align-items: center; }
+
+  /* HOOKS */
+  .hooks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .hook-card { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; padding: 14px 18px; }
+  .hook-card .hook-text { font-size: 0.98rem; color: #fca5a5; font-weight: 600; }
+  .hook-card .hook-type { font-size: 0.72rem; color: #94a3b8; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* PSYCH */
+  .psych-card { background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2); border-radius: 10px; padding: 16px; text-align: center; }
+  .psych-card .emoji { font-size: 1.6rem; }
+  .psych-card h5 { color: #c084fc; margin-top: 4px; font-size: 0.88rem; }
+  .psych-card p { color: #a1a1aa; font-size: 0.78rem; margin-top: 4px; }
+
+  /* CONTENT MIX */
+  .mix-bar { display: flex; height: 40px; border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  .mix-segment { display: flex; align-items: center; justify-content: center; font-size: 0.76rem; font-weight: 600; color: #fff; }
+  .mix-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+  .mix-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #94a3b8; }
+  .mix-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 40px; }
+  .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #059669, #f59e0b, #ef4444, #06b6d4); }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-dot { position: absolute; left: -33px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid; }
+  .t1 .timeline-dot { border-color: #3b82f6; background: #1e40af; }
+  .t2 .timeline-dot { border-color: #8b5cf6; background: #6d28d9; }
+  .t3 .timeline-dot { border-color: #059669; background: #047857; }
+  .t4 .timeline-dot { border-color: #f59e0b; background: #d97706; }
+  .t5 .timeline-dot { border-color: #ef4444; background: #b91c1c; }
+  .t6 .timeline-dot { border-color: #06b6d4; background: #0e7490; }
+  .timeline-content { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 18px 20px; }
+  .timeline-content h4 { font-size: 1.05rem; margin-bottom: 6px; }
+  .t1 h4 { color: #60a5fa; } .t2 h4 { color: #a78bfa; } .t3 h4 { color: #34d399; }
+  .t4 h4 { color: #fbbf24; } .t5 h4 { color: #f87171; } .t6 h4 { color: #22d3ee; }
+  .timeline-content ul { list-style: none; margin-top: 6px; }
+  .timeline-content li { padding: 3px 0; font-size: 0.85rem; color: #cbd5e1; }
+  .timeline-content li::before { content: '✓ '; color: #34d399; }
+  .timeline-content .kpi { background: rgba(96,165,250,0.1); padding: 8px 14px; border-radius: 8px; margin-top: 10px; font-size: 0.8rem; color: #93c5fd; }
+
+  /* DECISION */
+  .decision { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px; }
+  .decision-row { display: flex; gap: 20px; margin-top: 14px; flex-wrap: wrap; }
+  .decision-branch { flex: 1; min-width: 260px; border-radius: 10px; padding: 18px; }
+  .branch-no { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
+  .branch-yes { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); }
+  .branch-pivot { background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2); }
+  .branch-no h5 { color: #f87171; } .branch-yes h5 { color: #4ade80; } .branch-pivot h5 { color: #fbbf24; }
+  .decision-branch p { font-size: 0.86rem; color: #cbd5e1; margin-top: 6px; line-height: 1.7; }
+
+  /* KPI TABLE */
+  .kpi-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+  .kpi-table th { background: rgba(96,165,250,0.1); color: #60a5fa; padding: 10px 14px; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #334155; }
+  .kpi-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.86rem; color: #cbd5e1; }
+  .kpi-target { color: #4ade80; font-weight: 600; }
+  .kpi-metric { color: #fbbf24; }
+
+  /* WARNINGS */
+  .warnings { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .warning-item { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: 10px; padding: 12px 16px; font-size: 0.86rem; color: #fca5a5; }
+
+  /* OWNED */
+  .owned-card { background: linear-gradient(135deg, rgba(5,150,105,0.1), rgba(30,41,59,1)); border: 1px solid rgba(5,150,105,0.3); border-radius: 14px; padding: 24px; }
+  .owned-card h4 { color: #34d399; margin-bottom: 8px; }
+  .owned-card ul { list-style: none; margin-top: 8px; }
+  .owned-card li { padding: 4px 0; font-size: 0.86rem; color: #cbd5e1; }
+  .owned-card li::before { content: '→ '; color: #34d399; }
+
+  /* CHECKLIST */
+  .checklist li { padding: 4px 0; font-size: 0.86rem; color: #cbd5e1; }
+
+  /* XAONAU PROCESS */
+  .xn-step { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .xn-step:last-child { border: none; }
+  .xn-num { background: #2563eb; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+  .xn-text h5 { color: #60a5fa; font-size: 0.95rem; }
+  .xn-text p { color: #94a3b8; font-size: 0.84rem; margin-top: 2px; }
+  .xn-text .tool { display: inline-block; background: rgba(96,165,250,0.15); color: #93c5fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-top: 4px; margin-right: 4px; }
+
+  /* TOC */
+  .toc { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 16px; padding: 28px 32px; margin-bottom: 40px; position: relative; }
+  .toc h2 { color: #f8fafc; font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 8px; transition: background 0.15s; text-decoration: none; }
+  .toc-item:hover { background: rgba(96,165,250,0.1); }
+  .toc-num { background: #334155; color: #94a3b8; width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; }
+  .toc-item:hover .toc-num { background: #3b82f6; color: #fff; }
+  .toc-label { font-size: 0.88rem; color: #cbd5e1; }
+  .toc-item:hover .toc-label { color: #60a5fa; }
+  .toc-tag { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: auto; flex-shrink: 0; }
+  .tag-core { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .tag-content { background: rgba(124,58,237,0.15); color: #a78bfa; }
+  .tag-platform { background: rgba(5,150,105,0.15); color: #34d399; }
+  .tag-tech { background: rgba(217,119,6,0.15); color: #fbbf24; }
+  .tag-plan { background: rgba(239,68,68,0.15); color: #f87171; }
+
+  html { scroll-behavior: smooth; }
+  .section[id] { scroll-margin-top: 20px; }
+
+  footer { text-align: center; padding: 40px; color: #475569; font-size: 0.8rem; border-top: 1px solid #1e293b; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Thời Trang Nam Trung Niên — Global</h1>
+  <p class="subtitle">Chiến lược Organic Content Machine — Tìm source, edit video, viral trên FB / IG / YouTube<br>Target: US · UK · AU · EU — Không chạy Ads — Video 100% edit từ source · Bán hàng dùng AI Fashion mockup</p>
+  <div class="badges">
+    <span class="badge bg">v4 — Content-First</span>
+    <span class="badge bb">100% Organic</span>
+    <span class="badge bp">FB · IG · YouTube</span>
+    <span class="badge bo">US/UK/AU/EU</span>
+    <span class="badge br">Không Ads</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ==================== CHÂN DUNG KHÁCH ==================== -->
+
+<!-- TOC -->
+<div class="toc">
+  <h2>📑 Mục Lục</h2>
+  <div class="toc-grid">
+    <a href="#audience" class="toc-item"><span class="toc-num">01</span><span class="toc-label">Chân Dung Khách Hàng</span><span class="toc-tag tag-core">Nền tảng</span></a>
+    <a href="#sources" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Nguồn Content — Cào & Xào</span><span class="toc-tag tag-content">Content</span></a>
+    <a href="#process" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Quy Trình Xào Nấu 7 Bước</span><span class="toc-tag tag-content">Content</span></a>
+    <a href="#pipeline" class="toc-item"><span class="toc-num">04</span><span class="toc-label">Content Pipeline Tổng Quan</span><span class="toc-tag tag-content">Content</span></a>
+    <a href="#platforms" class="toc-item"><span class="toc-num">05</span><span class="toc-label">3 Nền Tảng Phân Phối</span><span class="toc-tag tag-platform">Platform</span></a>
+    <a href="#content-mix" class="toc-item"><span class="toc-num">06</span><span class="toc-label">Tỷ Lệ Content Mix</span><span class="toc-tag tag-content">Content</span></a>
+    <a href="#hooks" class="toc-item"><span class="toc-num">07</span><span class="toc-label">Hook 2 Giây Đầu</span><span class="toc-tag tag-content">Content</span></a>
+    <a href="#psychology" class="toc-item"><span class="toc-num">08</span><span class="toc-label">Tâm Lý Bán Hàng</span><span class="toc-tag tag-core">Nền tảng</span></a>
+    <a href="#owned" class="toc-item"><span class="toc-num">09</span><span class="toc-label">Kênh Sở Hữu</span><span class="toc-tag tag-platform">Platform</span></a>
+    <a href="#devices" class="toc-item"><span class="toc-num">10</span><span class="toc-label">Thiết Bị, App & Công Nghệ</span><span class="toc-tag tag-tech">Tech</span></a>
+    <a href="#anti-flag" class="toc-item"><span class="toc-num">11</span><span class="toc-label">Kỹ Thuật Tránh Flag / Flop</span><span class="toc-tag tag-tech">Tech</span></a>
+    <a href="#ip-global" class="toc-item"><span class="toc-num">12</span><span class="toc-label">IP VN → Reach Quốc Tế</span><span class="toc-tag tag-tech">Tech</span></a>
+    <a href="#workflow" class="toc-item"><span class="toc-num">13</span><span class="toc-label">Workflow PC → Phone → Đăng</span><span class="toc-tag tag-tech">Tech</span></a>
+    <a href="#timeline" class="toc-item"><span class="toc-num">14</span><span class="toc-label">Lộ Trình 6 Tháng</span><span class="toc-tag tag-plan">Plan</span></a>
+    <a href="#decision" class="toc-item"><span class="toc-num">15</span><span class="toc-label">Điểm Quyết Định Tháng 3</span><span class="toc-tag tag-plan">Plan</span></a>
+    <a href="#kpis" class="toc-item"><span class="toc-num">16</span><span class="toc-label">KPIs & Đo Lường</span><span class="toc-tag tag-plan">Plan</span></a>
+    <a href="#checklist" class="toc-item"><span class="toc-num">17</span><span class="toc-label">Checklist Tuần 1</span><span class="toc-tag tag-plan">Plan</span></a>
+    <a href="#daily" class="toc-item"><span class="toc-num">18</span><span class="toc-label">Lịch Hàng Ngày</span><span class="toc-tag tag-plan">Plan</span></a>
+    <a href="#warnings" class="toc-item"><span class="toc-num">19</span><span class="toc-label">Cần Tránh</span><span class="toc-tag tag-plan">Plan</span></a>
+  </div>
+</div>
+
+<div class="audience-card" id="audience">
+  <h2>🎯 Chân Dung Khách Hàng</h2>
+  <div class="grid-3">
+    <div class="audience-item">
+      <div class="label">Đối tượng</div>
+      <div class="value">Nam 35–60 tuổi, sống tại US/UK/AU/EU — nói tiếng Anh</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Thu nhập</div>
+      <div class="value">Middle-class trở lên. Sẵn sàng chi $50–$150 cho 1 bộ outfit</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Mong muốn</div>
+      <div class="value">"Look sharp without trying too hard" — phong cách dễ dàng, hợp tuổi</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Sản phẩm</div>
+      <div class="value">Polo, button-down, chinos, smart-casual blazer</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Màu chủ đạo</div>
+      <div class="value">White · Navy · Charcoal · Olive · Beige</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Nỗi đau</div>
+      <div class="value">"Mọi thứ thiết kế cho thanh niên 25" — cảm thấy bị bỏ quên</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Trigger mua</div>
+      <div class="value">Thấy người cùng tuổi mặc đẹp → "Mình cũng làm được"</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Deal-breaker</div>
+      <div class="value">Ảnh fake, ship chậm >14 ngày, không đổi trả, chất liệu kém</div>
+    </div>
+    <div class="audience-item">
+      <div class="label">Loyalty</div>
+      <div class="value">Rất trung thành khi đã tin — mua lại nhiều lần, giới thiệu bạn bè</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <div class="icon">💡</div>
+  <p>"Họ không mua áo — họ mua hình ảnh phiên bản tốt hơn của chính mình"</p>
+  <div class="sub">→ Bán transformation, không bán sản phẩm. Dùng người THẬT, kết quả THẬT.</div>
+</div>
+
+<!-- ==================== PHẦN TRỌNG TÂM: NGUỒN CONTENT ==================== -->
+
+<div class="section" id="sources">
+  <h3 class="section-title">🔍 Nguồn Content — Ở Đâu Để Cào & Xào?</h3>
+  <p class="section-desc">Nguyên tắc: tìm video đã viral → download → edit lại bằng CapCut (cắt ghép, thay text, đổi nhạc, thêm voiceover EN, overlay brand). <strong>Không tự quay/chụp</strong> — 100% dựa trên source có sẵn.</p>
+
+  <div class="note-banner nb-green">
+    <div class="n-icon">✓</div>
+    <div class="n-text"><strong>MÔ HÌNH SẢN XUẤT:</strong> Video content = 100% edit từ source viral (cắt ghép, remix, thay text/voice/nhạc). Bài bán hàng + listing = AI Fashion mockup (Midjourney, Flux, Leonardo). Không tự quay, không tự chụp.</div>
+  </div>
+
+  <div class="note-banner nb-red">
+    <div class="n-icon">!</div>
+    <div class="n-text"><strong>CẢNH BÁO COPYRIGHT:</strong> Không repost nguyên video gốc. Phải edit đủ khác biệt: cắt/ghép nhiều source, thay nhạc, thêm text overlay EN, voiceover mới, zoom/crop khác. Mục tiêu: video final phải "không nhận ra video gốc".</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 20px;">
+
+    <!-- SOURCE 1 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">1</div>
+        <div class="src-name">TikTok (EN) — Nguồn #1</div>
+      </div>
+      <div class="src-why">Viral nhanh nhất, dễ tìm trend, cùng audience tiếng Anh</div>
+      <ul>
+        <li>Search: "men over 40 style", "dad makeover", "men fashion transformation"</li>
+        <li>Theo dõi 20-30 creator nam trung niên đang hot</li>
+        <li>Tab "For You" nuôi bằng tài khoản chuyên xem men's fashion</li>
+        <li>Lọc video 500K+ views trong 7 ngày = đang viral</li>
+        <li>Ghi chú: hook gì, nhạc gì, format gì (transition/talking head/slideshow)</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: >500K views · <7 ngày · EN · Nam 35+ · Fashion/Lifestyle</div>
+    </div>
+
+    <!-- SOURCE 2 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">2</div>
+        <div class="src-name">Instagram Reels — Nguồn #2</div>
+      </div>
+      <div class="src-why">Audience trùng khớp nhất (nam trung niên EN), format dễ cross-post</div>
+      <ul>
+        <li>Explore → Reels tab → filter "Style" / "Fashion"</li>
+        <li>Theo dõi hashtag: #menover40 #smartcasual #gentlemanstyle #mensfashion</li>
+        <li>Xem content từ brand đối thủ: J.Crew, Uniqlo, COS, Todd Snyder</li>
+        <li>Carousel posts đang viral → chuyển thành video Reels</li>
+        <li>Chú ý: caption + CTA gì hiệu quả</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: >100K views · Carousel >5K saves · Hashtag trending</div>
+    </div>
+
+    <!-- SOURCE 3 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">3</div>
+        <div class="src-name">YouTube Shorts & Long-form — Nguồn #3</div>
+      </div>
+      <div class="src-why">Evergreen SEO content — tìm topic đã validate, làm phiên bản mình</div>
+      <ul>
+        <li>Search: "how to dress over 40", "men's capsule wardrobe", "style mistakes men make"</li>
+        <li>Xem channel: Tim Dessaint, Real Men Real Style, The Style O.G., He Spoke Style</li>
+        <li>Lọc video 100K+ views → topic đã được validate = đáng làm lại</li>
+        <li>Shorts viral → lấy concept, tự quay lại</li>
+        <li>Long-form → rút outline → làm phiên bản ngắn gọn hơn</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: >100K views · Upload <6 tháng · Comment nhiều = engagement cao</div>
+    </div>
+
+    <!-- SOURCE 4 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">4</div>
+        <div class="src-name">Douyin (Trung Quốc) — Nguồn phụ</div>
+      </div>
+      <div class="src-why">Format creative khác biệt, chưa bão hòa ở thị trường EN — nhưng phải adapt mạnh</div>
+      <ul>
+        <li>Chỉ lấy <strong>ý tưởng format</strong> — KHÔNG repost nguyên</li>
+        <li>Search: 中年男装 (thời trang nam trung niên), 男士穿搭 (phối đồ nam)</li>
+        <li>Transition style Douyin → tự quay lại với model/sản phẩm mình</li>
+        <li>Video >10 vạn tim, <1 tháng</li>
+        <li>Xem cách dựng: nhạc, timing, text overlay → adapt cho EN audience</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: >100K likes · <1 tháng · Chỉ lấy concept/format, KHÔNG lấy video</div>
+    </div>
+
+    <!-- SOURCE 5 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">5</div>
+        <div class="src-name">Pinterest — Nguồn ý tưởng visual</div>
+      </div>
+      <div class="src-why">Kho hình ảnh outfit khổng lồ, high purchase intent, SEO mạnh</div>
+      <ul>
+        <li>Search: "men over 40 outfit", "business casual men", "smart casual look"</li>
+        <li>Pin nào >1K saves → concept đã được validate</li>
+        <li>Tìm color palette, phối đồ → recreate bằng sản phẩm mình</li>
+        <li>Pinterest Trends tool → xem trend theo mùa</li>
+        <li>Lấy layout/composition style → áp vào ảnh sản phẩm mình</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: >1K saves · Trending pins · Mùa phù hợp (seasonal)</div>
+    </div>
+
+    <!-- SOURCE 6 -->
+    <div class="source-card">
+      <div class="src-header">
+        <div class="src-num">6</div>
+        <div class="src-name">Reddit — Nguồn insight khách hàng thật</div>
+      </div>
+      <div class="src-why">Đàn ông trung niên thật chia sẻ nỗi đau, câu hỏi, review — content idea machine</div>
+      <ul>
+        <li>r/malefashionadvice · r/menover30 · r/frugalmalefashion</li>
+        <li>Post nào nhiều upvote → topic mọi người quan tâm → làm video</li>
+        <li>"What should I wear to..." → content idea cho video phối đồ</li>
+        <li>Comment phàn nàn → biến thành hook: "Stop making this mistake..."</li>
+        <li>KHÔNG self-promote trên Reddit — chỉ đào insight</li>
+      </ul>
+      <div class="src-filter">Bộ lọc: Top posts tuần/tháng · Comment >50 · Specific pain points</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== QUY TRÌNH XÀO NẤU ==================== -->
+
+<div class="section" id="process">
+  <h3 class="section-title">🔧 Quy Trình Xào Nấu — Từ Source → Video Riêng</h3>
+  <p class="section-desc">Mục tiêu: biến content đã viral thành phiên bản của mình — giữ "chất viral", đổi "lớp vỏ".</p>
+
+  <div class="note-banner nb-blue">
+    <div class="n-icon">i</div>
+    <div class="n-text"><strong>Nguyên tắc edit:</strong> Giữ footage gốc (hình ảnh viral) — thay hoàn toàn: nhạc, text overlay EN, voiceover AI, crop/zoom khác, ghép nhiều source, thêm brand watermark. Video final phải đủ khác để không bị nhận ra là copy. Bán hàng dùng AI fashion mockup riêng.</div>
+  </div>
+
+  <div class="card">
+    <div class="xn-step">
+      <div class="xn-num">1</div>
+      <div class="xn-text">
+        <h5>Scout — Tìm video viral đã validate</h5>
+        <p>Mỗi ngày dành 30 phút lướt TikTok + IG Reels + YouTube Shorts. Lưu 5-10 video viral vào folder "Swipe File". Ghi chú: hook gì · nhạc gì · format gì · vì sao viral.</p>
+        <span class="tool">TikTok</span><span class="tool">IG Explore</span><span class="tool">YT Shorts</span><span class="tool">Pinterest</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">2</div>
+      <div class="xn-text">
+        <h5>Phân tích — Tách "DNA viral" của video gốc</h5>
+        <p>Xác định: (1) Hook 2 giây đầu nói gì, (2) Cấu trúc video (problem→solution? slideshow? transition?), (3) Nhạc/sound trend, (4) Text overlay style, (5) CTA cuối. Ghi thành template.</p>
+        <span class="tool">Notion/Google Sheet</span><span class="tool">Swipe File</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">3</div>
+      <div class="xn-text">
+        <h5>Script — Viết text overlay + caption EN</h5>
+        <p>Giữ cấu trúc hook + flow của video gốc. Viết text overlay tiếng Anh mới, caption EN cho bài đăng. Dùng ChatGPT hỗ trợ viết tự nhiên (không robotic). Kết bằng CTA rõ ràng. Nếu có voiceover → dùng AI voice (ElevenLabs) hoặc text-to-speech.</p>
+        <span class="tool">ChatGPT</span><span class="tool">ElevenLabs (AI voice)</span><span class="tool">Google Docs</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">4</div>
+      <div class="xn-text">
+        <h5>Download + Cắt Ghép — Lấy raw footage từ source</h5>
+        <p>Download video gốc từ TikTok/IG/YT/Douyin (dùng SnapTik, SaveFrom, 4K Downloader). Cắt đoạn hay nhất, ghép nhiều source thành 1 video mới. Xóa watermark gốc. Thêm zoom, crop, slow-mo để tạo khác biệt. Video final dưới 60 giây.</p>
+        <span class="tool">SnapTik</span><span class="tool">SaveFrom</span><span class="tool">4K Video Downloader</span><span class="tool">CapCut</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">5</div>
+      <div class="xn-text">
+        <h5>Edit — Biến thành video "mới hoàn toàn"</h5>
+        <p>CapCut edit: thay nhạc trending EN, thêm text overlay tiếng Anh, thêm voiceover AI nếu cần, transition mới, zoom/crop khác gốc. Subtitle tự động (CapCut/Submagic). Tỷ lệ 9:16. Watermark brand của mình. Thumbnail riêng cho YT. Mục tiêu: xem video final → không nhận ra source gốc.</p>
+        <span class="tool">CapCut</span><span class="tool">Submagic</span><span class="tool">ElevenLabs</span><span class="tool">Canva</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">6</div>
+      <div class="xn-text">
+        <h5>Post — Đăng cross-platform + tối ưu cho từng nền tảng</h5>
+        <p>Đăng gốc lên nền tảng chính (thường TikTok) → cross-post lên FB Reels + IG Reels + YT Shorts. Mỗi nền tảng tinh chỉnh: caption khác, hashtag khác, CTA khác. Đăng vào giờ peak audience EN (8AM EST, 12PM EST, 7PM EST).</p>
+        <span class="tool">Later/Buffer</span><span class="tool">Manual post</span>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num">7</div>
+      <div class="xn-text">
+        <h5>Track — Đo kết quả, nhân bản format thắng</h5>
+        <p>Sau 48h check: views, saves, shares, comments, link clicks. Video nào >10K views → format thắng → làm thêm 3-5 video cùng format. Video flop → bỏ, không sửa. Cập nhật Swipe File với learnings.</p>
+        <span class="tool">Platform Analytics</span><span class="tool">Google Sheet tracker</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PIPELINE VISUAL ==================== -->
+
+<div class="section" id="pipeline">
+  <h3 class="section-title">🔄 Content Pipeline — Tổng Quan</h3>
+  <div class="pipe-container">
+    <div class="pipe">
+      <div class="pipe-step purple">
+        <h5>Scout</h5>
+        <p>30p/ngày<br>Lướt 6 nguồn<br>Lưu Swipe File</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step purple">
+        <h5>Phân Tích</h5>
+        <p>Tách DNA viral<br>Hook + Format<br>+ Sound</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step">
+        <h5>Script</h5>
+        <p>Viết lại EN<br>Giọng riêng<br>CTA rõ</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step">
+        <h5>Download</h5>
+        <p>Lấy raw footage<br>Cắt ghép nhiều src<br>Xóa watermark</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step yellow">
+        <h5>Edit</h5>
+        <p>CapCut · Sub<br>9:16 · Trending<br>sound</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step green">
+        <h5>Post</h5>
+        <p>FB · IG · YT<br>Cross-platform<br>Giờ peak EN</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step red">
+        <h5>Track</h5>
+        <p>48h check<br>Nhân bản thắng<br>Bỏ flop</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3 NỀN TẢNG CHÍNH ==================== -->
+
+<div class="section" id="platforms">
+  <h3 class="section-title">📱 3 Nền Tảng Phân Phối Chính</h3>
+  <p class="section-desc">Tập trung 100% vào FB Reels + IG Reels + YouTube — 3 nền tảng organic reach mạnh nhất cho thị trường EN.</p>
+
+  <div class="grid-3">
+    <div class="platform-card fb">
+      <div class="platform-header">
+        <div class="platform-icon">f</div>
+        <div>
+          <div class="platform-name">Facebook</div>
+          <div class="platform-role">Reach lớn nhất — Reels đang được đẩy mạnh</div>
+        </div>
+      </div>
+      <div class="platform-body">
+        <ul>
+          <li>FB Reels đang được Meta ưu tiên → organic reach rất cao</li>
+          <li>Audience nam 35-60 tập trung đông nhất ở FB</li>
+          <li>Cross-post video từ IG Reels (cùng format)</li>
+          <li>FB Group "Men's Style Over 40" — community hub</li>
+          <li>Page post: Reels + carousel outfit + bài viết giá trị</li>
+          <li>Comment engagement = algorithm đẩy thêm reach</li>
+        </ul>
+        <div class="platform-freq">2–3 Reels/ngày · 1 bài Group/ngày</div>
+      </div>
+    </div>
+
+    <div class="platform-card ig">
+      <div class="platform-header">
+        <div class="platform-icon">IG</div>
+        <div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-role">Brand image + Shopping intent</div>
+        </div>
+      </div>
+      <div class="platform-body">
+        <ul>
+          <li>Reels = format chính (cross-post từ TikTok/FB)</li>
+          <li>Carousel: "5 outfits for men over 40" → high save rate</li>
+          <li>Stories: poll, Q&A, behind-the-scenes → engage daily</li>
+          <li>Bio link → Shopify store + email signup</li>
+          <li>Hashtag: #menover40 #smartcasual #gentlemanstyle</li>
+          <li>IG Shopping tags nếu có Shopify store</li>
+        </ul>
+        <div class="platform-freq">1–2 Reels/ngày · 1 Carousel/tuần · Stories hàng ngày</div>
+      </div>
+    </div>
+
+    <div class="platform-card yt">
+      <div class="platform-header">
+        <div class="platform-icon">▶</div>
+        <div>
+          <div class="platform-name">YouTube</div>
+          <div class="platform-role">SEO evergreen — traffic dài hạn</div>
+        </div>
+      </div>
+      <div class="platform-body">
+        <ul>
+          <li>Shorts: cross-post từ Reels (15-60s)</li>
+          <li>Long-form (5-10p): "Complete style guide for men over 40"</li>
+          <li>SEO title: target search intent cụ thể</li>
+          <li>Video 6 tháng trước vẫn mang traffic → evergreen</li>
+          <li>Playlist: "Wardrobe Essentials", "Outfit Ideas", "Style Mistakes"</li>
+          <li>Description: link store + email signup + social links</li>
+        </ul>
+        <div class="platform-freq">Shorts hàng ngày · Long-form 1/tuần</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CONTENT MIX ==================== -->
+
+<div class="section" id="content-mix">
+  <h3 class="section-title">📋 Tỷ Lệ Content Mix</h3>
+  <div class="card" style="margin-bottom: 20px;">
+    <div class="mix-bar">
+      <div class="mix-segment" style="width: 35%; background: #3b82f6;">35% Giá trị</div>
+      <div class="mix-segment" style="width: 30%; background: #8b5cf6;">30% Giải trí</div>
+      <div class="mix-segment" style="width: 20%; background: #059669;">20% Bán hàng nhẹ</div>
+      <div class="mix-segment" style="width: 15%; background: #d97706;">15% UGC/Review</div>
+    </div>
+    <div class="mix-legend">
+      <div class="mix-legend-item"><div class="mix-dot" style="background: #3b82f6;"></div>Giá trị: tips phối đồ, style guide, how-to</div>
+      <div class="mix-legend-item"><div class="mix-dot" style="background: #8b5cf6;"></div>Giải trí: before/after, challenge, trend, humor</div>
+      <div class="mix-legend-item"><div class="mix-dot" style="background: #059669;"></div>Bán hàng nhẹ: outfit showcase, review, CTA</div>
+      <div class="mix-legend-item"><div class="mix-dot" style="background: #d97706;"></div>UGC: khách mặc thật, feedback, repost</div>
+    </div>
+  </div>
+
+  <div class="grid-4">
+    <div class="card">
+      <h4 style="color: #3b82f6; font-size: 0.95rem;">📝 Giá Trị (35%)</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "5 rules every man over 40 should know"</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "1 polo, 5 different looks"</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "Colors that make you look younger"</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "What to wear to: date / golf / meeting"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #8b5cf6; font-size: 0.95rem;">🎬 Giải Trí (30%)</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Before/After makeover</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "Wife rates my outfits"</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "Dad vs Son style battle"</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Street interview: "How old am I?"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #059669; font-size: 0.95rem;">🛒 Bán Nhẹ (20%) — AI Mockup</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Outfit showcase (AI fashion mockup)</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ AI model mặc sản phẩm — mặt trước/sau</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Carousel: nhiều màu/size AI render</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ "Link in bio" soft CTA</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Bundle: "The Weekend Kit"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #d97706; font-size: 0.95rem;">🤳 UGC (15%)</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Khách mặc thật gửi ảnh</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Review screenshots</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ Unboxing video từ khách</li>
+        <li style="padding: 3px 0; font-size: 0.82rem; color: #cbd5e1;">▸ #StyledOver40 hashtag</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HOOKS ==================== -->
+
+<div class="section" id="hooks">
+  <h3 class="section-title">🎣 Hook 2 Giây Đầu — Bằng Tiếng Anh</h3>
+  <p class="section-desc">Hook quyết định 80% thành bại. Phải dừng scroll ngay lập tức. Dưới đây là các mẫu đã được validate viral.</p>
+  <div class="hooks-grid">
+    <div class="hook-card">
+      <div class="hook-text">"Stop dressing like a dad — start dressing like a gentleman"</div>
+      <div class="hook-type">Identity shift · Aspirational</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"3 things that make you look 10 years older"</div>
+      <div class="hook-type">Nỗi sợ · Listicle · Curiosity</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"I'm 47 but people think I'm 35 — here's why"</div>
+      <div class="hook-type">Kết quả · Social proof</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"The $40 polo that gets more compliments than my $200 one"</div>
+      <div class="hook-type">Value · Surprise · Cụ thể</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"My wife didn't recognize me after this style change"</div>
+      <div class="hook-type">Storytelling · Relatable</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"Every man over 40 NEEDS these 3 colors"</div>
+      <div class="hook-type">Authority · Urgency</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"POV: you finally dress your age — and people notice"</div>
+      <div class="hook-type">POV trend · TikTok native</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-text">"Stylish at 50 isn't expensive — it's intentional"</div>
+      <div class="hook-type">Mindset · Accessible</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TÂM LÝ BÁN HÀNG ==================== -->
+
+<div class="section" id="psychology">
+  <h3 class="section-title">🧠 Tâm Lý Bán Hàng — Áp Dụng Vào Content</h3>
+  <div class="grid-5">
+    <div class="psych-card">
+      <div class="emoji">🪞</div>
+      <h5>Bán Identity</h5>
+      <p>"Phiên bản tốt nhất khi bước vào phòng"</p>
+    </div>
+    <div class="psych-card">
+      <div class="emoji">👔</div>
+      <h5>Versatility</h5>
+      <p>1 áo → 5 dịp: office, date, golf, brunch</p>
+    </div>
+    <div class="psych-card">
+      <div class="emoji">⏪</div>
+      <h5>Before/After</h5>
+      <p>"Cùng 1 người, khác outfit, khác năng lượng"</p>
+    </div>
+    <div class="psych-card">
+      <div class="emoji">💬</div>
+      <h5>Compliment Bait</h5>
+      <p>"Where did you get that?" — câu khen mơ ước</p>
+    </div>
+    <div class="psych-card">
+      <div class="emoji">📍</div>
+      <h5>Occasion-Based</h5>
+      <p>Mặc gì khi: date night, meeting, weekend</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== OWNED CHANNELS ==================== -->
+
+<div class="section" id="owned">
+  <h3 class="section-title">🏠 Kênh Sở Hữu — Giữ Chân Audience</h3>
+  <p class="section-desc">Organic reach = mượn sân người khác. Phải dắt audience về kênh mình sở hữu trước khi algorithm thay đổi.</p>
+  <div class="grid-3">
+    <div class="owned-card">
+      <h4>📧 Email List (Klaviyo)</h4>
+      <ul>
+        <li>Lead magnet: "Free Style Guide PDF" đổi lấy email</li>
+        <li>Welcome flow: 5 email trong 7 ngày</li>
+        <li>Newsletter tuần: tips + hàng mới + UGC spotlight</li>
+        <li>Abandoned cart flow khi có Shopify</li>
+        <li>Target: email tạo 25-40% revenue về sau</li>
+      </ul>
+    </div>
+    <div class="owned-card">
+      <h4>📘 FB Group (Tiếng Anh)</h4>
+      <ul>
+        <li>"Men's Style Over 40" — cộng đồng, không shop</li>
+        <li>Weekly prompt: "Show your weekend outfit"</li>
+        <li>Members giúp nhau → organic engagement</li>
+        <li>Exclusive early access cho members</li>
+        <li>Soft sell: "Nhiều anh em hỏi áo polo này..."</li>
+      </ul>
+    </div>
+    <div class="owned-card">
+      <h4>🔗 Link in Bio</h4>
+      <ul>
+        <li>Linktree/Stan Store → nhiều link 1 chỗ</li>
+        <li>Link 1: Shopify store (khi sẵn sàng)</li>
+        <li>Link 2: Free Style Guide (email capture)</li>
+        <li>Link 3: FB Group (community)</li>
+        <li>Link 4: YouTube channel</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TIMELINE 6 THÁNG ==================== -->
+
+<div class="section" id="timeline">
+  <h3 class="section-title">📅 Lộ Trình 6 Tháng — 100% Organic</h3>
+
+  <div class="timeline">
+    <div class="timeline-item t1">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 1 — Setup & Tạo Kho Content</h4>
+        <ul>
+          <li>Tạo account: FB Page + Group, IG, YouTube — tên + avatar đồng nhất</li>
+          <li>Nuôi TikTok cá nhân 1 tuần (follow 30 creator men's fashion EN)</li>
+          <li>Xây Swipe File: lưu 50-100 video viral từ 6 nguồn</li>
+          <li>Phân tích 20 video viral → rút ra 5-7 format template</li>
+          <li>Batch-edit 14-21 video từ source viral (1-2 tuần buffer sẵn sàng đăng)</li>
+          <li>Tạo 20-30 ảnh AI fashion mockup cho sản phẩm (Midjourney/Flux)</li>
+          <li>Bắt đầu đăng 2-3 video/ngày cross-platform</li>
+          <li>Tạo lead magnet: Style Guide PDF (Canva)</li>
+          <li>Seed FB Group: mời 50 người đầu (bạn bè, forum)</li>
+        </ul>
+        <div class="kpi">KPI: 500 followers tổng · 10K reach/tuần · Xác định 2-3 format thắng · Swipe File 100+ videos</div>
+      </div>
+    </div>
+
+    <div class="timeline-item t2">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 2 — Tìm Content-Market Fit</h4>
+        <ul>
+          <li>Nhân bản format viral từ tháng 1 (3-5 video/format)</li>
+          <li>Test thêm format mới mỗi tuần (1-2 concept mới)</li>
+          <li>YouTube: upload Shorts hàng ngày + 1 long-form đầu tiên</li>
+          <li>FB Group: weekly prompt, style discussion</li>
+          <li>Bắt đầu email list: popup trên Linktree / bio link</li>
+          <li>Engage 30p/ngày: reply comment, like, follow back</li>
+          <li>Track metrics: video nào → nhiều profile visit + follow</li>
+        </ul>
+        <div class="kpi">KPI: 2K followers · 25K reach/tuần · 100 email subs · 200 Group members · 1-2 viral video (>50K views)</div>
+      </div>
+    </div>
+
+    <div class="timeline-item t3">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 3 — Checkpoint: Go / Pivot / Stop</h4>
+        <ul>
+          <li>Đánh giá tổng: reach, followers, engagement, email list</li>
+          <li>Nếu GO: scale format thắng, tăng tần suất, bắt đầu soft sell</li>
+          <li>Bắt đầu xin UGC: khách đầu nhận hàng → gửi ảnh/video thật</li>
+          <li>YouTube long-form: 1-2/tuần (SEO-optimized)</li>
+          <li>Community đủ 500+ → organic word-of-mouth bắt đầu</li>
+          <li>Nếu có hàng → setup Shopify store cơ bản</li>
+        </ul>
+        <div class="kpi">KPI: 5K followers · 50K reach/tuần · 500 email subs · 500 Group members · Biết rõ 3 format thắng</div>
+      </div>
+    </div>
+
+    <div class="timeline-item t4">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 4 — Scale Content & Bắt Đầu Bán</h4>
+        <ul>
+          <li>Tăng volume: 3-4 video/ngày (batch edit từ source cuối tuần)</li>
+          <li>Soft sell 20% content: outfit showcase + link in bio</li>
+          <li>UGC program: #StyledOver40 — giảm 15% cho khách gửi ảnh</li>
+          <li>Bundle deals: "The Weekend Essentials" · "Smart Casual Kit"</li>
+          <li>Cross-sell nếu có: phụ kiện (belt, sunglasses, wallet)</li>
+          <li>Email: weekly newsletter + welcome flow active</li>
+        </ul>
+        <div class="kpi">KPI: 10K followers · 100K reach/tuần · 1K email subs · 20-40 đơn đầu tiên</div>
+      </div>
+    </div>
+
+    <div class="timeline-item t5">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 5 — Tối Ưu Chuyển Đổi</h4>
+        <ul>
+          <li>A/B test: CTA nào hiệu quả nhất (link in bio vs comment vs DM)</li>
+          <li>Tối ưu Shopify: product page, size guide, reviews</li>
+          <li>Micro-influencer seeding: gửi free product 10-20 người (5K-50K followers)</li>
+          <li>Content collab: duet/stitch với creator cùng niche</li>
+          <li>Email: abandoned cart flow + win-back flow</li>
+          <li>Track: content nào → clicks → orders (attribution)</li>
+        </ul>
+        <div class="kpi">KPI: 15K followers · 50-80 đơn/tháng · Repeat rate > 10% · Email revenue > 15%</div>
+      </div>
+    </div>
+
+    <div class="timeline-item t6">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Tháng 6 — Hệ Thống Hóa</h4>
+        <ul>
+          <li>SOP hóa: content calendar, quy trình xào nấu, quy trình ship</li>
+          <li>Thuê 1 VA ($5-8/hr): lên lịch đăng + reply comment + đóng hàng</li>
+          <li>Content batching: edit 2 tuần video từ source trong 1 ngày</li>
+          <li>Review toàn bộ 6 tháng → lập plan tiếp theo</li>
+          <li>Quyết định: giữ organic thuần hay thêm paid?</li>
+          <li>Mở rộng product line dựa trên data thực tế</li>
+        </ul>
+        <div class="kpi">KPI: 20K+ followers · 100-200 đơn/tháng · $5K-$15K revenue · Hệ thống 50% tự động · Profit margin > 30%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DECISION POINT ==================== -->
+
+<div class="section" id="decision">
+  <h3 class="section-title">🔀 Điểm Quyết Định — Tháng 3</h3>
+  <div class="decision">
+    <p style="text-align: center; color: #94a3b8; margin-bottom: 8px;">Sau 90 ngày đăng đều — đánh giá toàn diện</p>
+    <div class="decision-row">
+      <div class="decision-branch branch-no">
+        <h5>❌ STOP nếu:</h5>
+        <p>→ Reach < 10K/tuần sau 3 tháng<br>→ Không có video nào >50K views<br>→ Follower growth < 100/tuần<br>→ Không engagement thật (toàn bot)<br><br><strong>Action:</strong> Pivot sang niche khác hoặc đổi content angle</p>
+      </div>
+      <div class="decision-branch branch-pivot">
+        <h5>⚡ PIVOT nếu:</h5>
+        <p>→ Có reach nhưng audience sai<br>→ Views cao nhưng không follow<br>→ Content entertaining nhưng không brand-building<br><br><strong>Action:</strong> Giữ kênh, đổi content angle hoặc target audience cụ thể hơn</p>
+      </div>
+      <div class="decision-branch branch-yes">
+        <h5>✅ GO nếu:</h5>
+        <p>→ Reach > 50K/tuần<br>→ 2-3 video đạt >50K views<br>→ Follower growth > 300/tuần<br>→ Email list > 500<br>→ Group > 500 members<br><br><strong>Action:</strong> Scale content + bắt đầu soft sell + mở Shopify</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== KPIs ==================== -->
+
+<div class="section" id="kpis">
+  <h3 class="section-title">📊 KPIs — Đo Lường Theo Giai Đoạn</h3>
+  <div class="card">
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Giai đoạn</th><th>Metric</th><th>Target</th><th>Cách đo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><strong>Tháng 1-2</strong><br>(Build)</td>
+          <td class="kpi-metric">Reach/tuần (tổng 3 nền tảng)</td>
+          <td class="kpi-target">10K → 25K</td>
+          <td>FB/IG/YT Analytics</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Follower growth/tuần</td>
+          <td class="kpi-target">+200 → +500</td>
+          <td>Platform analytics</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Engagement rate</td>
+          <td class="kpi-target">> 4%</td>
+          <td>(Like+Comment+Share) / Reach</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Email signups</td>
+          <td class="kpi-target">> 100</td>
+          <td>Klaviyo / Mailchimp</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>Tháng 3-4</strong><br>(Validate)</td>
+          <td class="kpi-metric">Viral videos (>50K views)</td>
+          <td class="kpi-target">> 3</td>
+          <td>Platform analytics</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Save/Share rate</td>
+          <td class="kpi-target">> 2%</td>
+          <td>IG/FB insights</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Profile visits → follow</td>
+          <td class="kpi-target">> 10%</td>
+          <td>IG/TikTok analytics</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Link clicks (bio)</td>
+          <td class="kpi-target">> 200/tuần</td>
+          <td>Linktree analytics</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>Tháng 5-6</strong><br>(Scale)</td>
+          <td class="kpi-metric">Đơn/tháng</td>
+          <td class="kpi-target">> 100</td>
+          <td>Shopify</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Revenue/tháng</td>
+          <td class="kpi-target">> $5,000</td>
+          <td>Shopify</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Repeat purchase</td>
+          <td class="kpi-target">> 15%</td>
+          <td>Shopify repeat customer</td>
+        </tr>
+        <tr>
+          <td class="kpi-metric">Email revenue %</td>
+          <td class="kpi-target">> 25%</td>
+          <td>Klaviyo attribution</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== THIẾT BỊ, APP & KỸ THUẬT ==================== -->
+
+<div class="section" id="devices">
+  <h3 class="section-title">🖥️ Thiết Bị, App & Công Nghệ</h3>
+  <p class="section-desc">Setup chuẩn: edit trên PC → chuyển file sang điện thoại → đăng từ điện thoại (algorithm ưu tiên mobile-native). IP VN nhưng reach quốc tế bằng kỹ thuật targeting.</p>
+
+  <div class="grid-2" style="margin-bottom: 20px;">
+    <!-- HARDWARE -->
+    <div class="card">
+      <h4 style="color: #60a5fa;">💻 Phần Cứng</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>PC/Laptop:</strong> Dùng để edit video (CapCut Desktop), tạo AI mockup, quản lý Swipe File, viết caption</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Điện thoại chính (iPhone ưu tiên):</strong> Đăng bài chính thức — algorithm ưu tiên post từ app mobile gốc. iPhone cho chất lượng video tốt hơn khi upload</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Điện thoại phụ (optional):</strong> Nuôi tài khoản phụ / scout content. Android rẻ đủ dùng</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cáp USB-C / Lightning:</strong> Chuyển file PC → Phone nhanh nhất (không qua cloud, giữ chất lượng gốc)</li>
+      </ul>
+    </div>
+
+    <!-- SOFTWARE -->
+    <div class="card">
+      <h4 style="color: #a78bfa;">📲 App & Software</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>CapCut Desktop:</strong> Edit chính — cắt ghép, text overlay, nhạc, subtitle, transition</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>CapCut Mobile:</strong> Fine-tune cuối nếu cần trước khi đăng</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Canva (Desktop + App):</strong> Carousel, thumbnail YouTube, AI mockup layout</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Midjourney / Flux / Leonardo:</strong> AI fashion mockup cho bài bán hàng</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>ElevenLabs:</strong> AI voiceover tiếng Anh tự nhiên (nếu cần voice)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>ChatGPT:</strong> Viết caption, hook, hashtag tiếng Anh chuẩn</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Submagic / CapCut auto-sub:</strong> Tự động thêm subtitle EN</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 20px;">
+    <!-- DOWNLOAD TOOLS -->
+    <div class="card">
+      <h4 style="color: #34d399;">⬇️ Download & Lưu Trữ</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>SnapTik / SSSTik:</strong> Download TikTok không watermark</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>SaveFrom / SnapInsta:</strong> Download IG Reels</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>4K Video Downloader:</strong> Download YouTube (chất lượng cao nhất)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Douyin Downloader:</strong> Download Douyin (cần web China hoặc extension)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Google Drive / Dropbox:</strong> Sync file PC ↔ Phone tự động</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Notion / Google Sheet:</strong> Quản lý Swipe File + content calendar</li>
+      </ul>
+    </div>
+
+    <!-- PC-PHONE WORKFLOW -->
+    <div class="card">
+      <h4 style="color: #fbbf24;">🔗 Workflow PC → Phone → Đăng</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>scrcpy (free):</strong> Điều khiển Android từ PC — thao tác đăng bài trên phone từ màn hình PC. Nhanh, không lag</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>AirDroid:</strong> Quản lý file + mirror màn hình Android → PC wireless</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>iMazing (iPhone):</strong> Chuyển file video PC → iPhone giữ chất lượng gốc</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>AirDrop (Mac→iPhone):</strong> Chuyển file nhanh nhất nếu dùng Mac</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Google Drive app:</strong> Upload từ PC → download trên phone → đăng</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cáp USB trực tiếp:</strong> Nhanh + không mất chất lượng (Windows→Android: MTP / iPhone: iTunes file sharing)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== KỸ THUẬT TRÁNH FLAG/FLOP ==================== -->
+
+<div class="section" id="anti-flag">
+  <h3 class="section-title">🛡️ Kỹ Thuật Tránh Bị Flag / Flop Tài Khoản</h3>
+  <p class="section-desc">Tài khoản mới dễ bị "shadow ban" hoặc giới hạn reach nếu không nuôi đúng cách. Dưới đây là quy trình nuôi account chuẩn để tránh flop.</p>
+
+  <div class="note-banner nb-red">
+    <div class="n-icon">!</div>
+    <div class="n-text"><strong>NGUYÊN TẮC VÀNG:</strong> Algorithm phân biệt "người dùng thật" vs "spammer" dựa trên hành vi. Phải hành xử như người dùng thật trước khi trở thành creator. Không bao giờ đăng bài ngay sau khi tạo tài khoản.</div>
+  </div>
+
+  <div class="card" style="margin-bottom: 20px;">
+    <h4 style="color: #f87171; margin-bottom: 14px;">📋 Quy Trình Nuôi Account Mới (7-14 ngày)</h4>
+
+    <div class="xn-step">
+      <div class="xn-num" style="background: #dc2626;">1</div>
+      <div class="xn-text">
+        <h5>Ngày 1-3: Chỉ Lướt — Không Đăng Gì</h5>
+        <p>Tạo tài khoản → lướt feed 20-30 phút/ngày. Like, comment, follow 5-10 account trong niche men's fashion. <strong>Xem video đến hết</strong> (watch time = tín hiệu quan trọng nhất). Không đăng, không share link, không gì cả.</p>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num" style="background: #dc2626;">2</div>
+      <div class="xn-text">
+        <h5>Ngày 4-5: Tương Tác Nhiều Hơn</h5>
+        <p>Comment thật (không generic "nice!") — viết 5-10 từ liên quan đến nội dung. Follow thêm 10-20 account cùng niche. Share 1-2 video hay vào story. Vẫn chưa đăng bài.</p>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num" style="background: #dc2626;">3</div>
+      <div class="xn-text">
+        <h5>Ngày 6-7: Đăng Bài Đầu Tiên</h5>
+        <p>Đăng video đầu tiên — chất lượng tốt nhất mình có. Giờ vàng: 8AM EST hoặc 7PM EST. Sau khi đăng → ở lại app 15-20 phút tiếp tục lướt + tương tác (algorithm theo dõi hành vi sau khi post).</p>
+      </div>
+    </div>
+    <div class="xn-step">
+      <div class="xn-num" style="background: #dc2626;">4</div>
+      <div class="xn-text">
+        <h5>Ngày 8-14: Tăng Dần — 1 bài/ngày → 2-3 bài/ngày</h5>
+        <p>Tuần 2: đăng 1 bài/ngày. Tuần 3: tăng lên 2 bài/ngày. Từ tuần 4: 2-3 bài/ngày. <strong>Không bao giờ nhảy đột ngột</strong> từ 0 lên 5 bài/ngày — đây là tín hiệu spam.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom: 20px;">
+    <div class="card">
+      <h4 style="color: #f87171; font-size: 0.95rem;">🚫 Hành Vi Gây Flag</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Đăng bài ngay sau khi tạo account</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Follow/unfollow hàng loạt (>50/ngày)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Spam link trong comment/bio ngay đầu</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Đăng 5+ bài/ngày từ account mới</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Copy caption y chang từ video khác</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Dùng hashtag bị ban (#fyp spam)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Đăng video có watermark nền tảng khác</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Đăng từ desktop browser (FB/IG giảm reach)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Xóa bài rồi đăng lại liên tục</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fca5a5;">✗ Dùng tool auto-like/auto-comment</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #4ade80; font-size: 0.95rem;">✅ Hành Vi Tăng Trust</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Nuôi 7 ngày trước khi đăng</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Đăng từ app mobile chính thức</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Tăng tần suất từ từ (1→2→3/ngày)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Reply comment trong 1 giờ đầu sau đăng</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Ở lại app 15-20p sau khi post</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Xem video người khác hết (watch time)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Comment thật, có giá trị, 5-10 từ</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Đăng đều đặn cùng giờ mỗi ngày</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Bio hoàn chỉnh: ảnh, tên, mô tả, link</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #86efac;">✓ Kết nối 2FA, email, SĐT (tăng trust)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #fbbf24; font-size: 0.95rem;">⚡ Dấu Hiệu Bị Shadow Ban</h4>
+      <ul style="list-style: none; margin-top: 6px;">
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">⚠ Reach đột ngột giảm 80-90%</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">⚠ Video không xuất hiện trên hashtag</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">⚠ Comment bị ẩn với người khác</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">⚠ Không gợi ý trên Explore/FYP</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d; margin-top: 8px;"><strong>Cách xử lý:</strong></li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">→ Ngừng đăng 48-72h</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">→ Chỉ lướt + tương tác tự nhiên</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">→ Xóa hashtag bị ban (nếu có)</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">→ Đăng lại từ từ 1 bài/ngày</li>
+        <li style="padding: 4px 0; font-size: 0.84rem; color: #fcd34d;">→ Nếu >2 tuần không hồi → acc mới</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== IP VN REACH QUỐC TẾ ==================== -->
+
+<div class="section" id="ip-global">
+  <h3 class="section-title">🌍 Đăng Từ IP Việt Nam — Reach Vào US/UK/AU/EU</h3>
+  <p class="section-desc">Không bắt buộc phải dùng VPN. Algorithm phân phối dựa trên <strong>ngôn ngữ content + hành vi audience</strong>, không chỉ IP người đăng.</p>
+
+  <div class="note-banner nb-blue">
+    <div class="n-icon">i</div>
+    <div class="n-text"><strong>SỰ THẬT:</strong> Nhiều creator Việt Nam, Philippines, Ấn Độ đăng content tiếng Anh từ IP local và vẫn viral ở US/UK. Algorithm ưu tiên: (1) Ngôn ngữ nội dung, (2) Hành vi audience tương tác, (3) Trending sound/format — chứ KHÔNG dựa chính vào IP người đăng.</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 20px;">
+    <div class="card">
+      <h4 style="color: #22d3ee;">🎯 Kỹ Thuật Reach Quốc Tế (Không Cần VPN)</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>100% content tiếng Anh:</strong> Caption, text overlay, voiceover — tất cả EN. Algorithm detect ngôn ngữ → phân phối cho audience EN</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Hashtag EN chuẩn:</strong> #mensfashion #menover40 #smartcasual #gentlemanstyle — không dùng hashtag tiếng Việt</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Trending sound EN:</strong> Dùng nhạc/sound đang trend ở US/UK — algorithm liên kết sound → audience</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Đăng giờ peak EN:</strong> 8AM EST · 12PM EST · 7PM EST (tức 7PM · 11PM · 6AM VN)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Engage với audience EN:</strong> Reply comment bằng tiếng Anh, follow EN creators, like EN content</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cài đặt ngôn ngữ app = English:</strong> Tất cả FB/IG/YT → settings → Language = English (US)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Location trong bio:</strong> Ghi thành phố Mỹ/UK nếu muốn (không bắt buộc nhưng giúp)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4 style="color: #22d3ee;">🔒 Khi Nào CẦN Dùng VPN/Proxy</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Tạo account mới:</strong> Nên tạo account trên IP US/UK (VPN) → nuôi 3-5 ngày trên IP đó → sau đó có thể về IP VN. Giúp algorithm "gắn" audience ban đầu = EN</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Mua via FB:</strong> Nếu mua via ngoại → giữ cùng IP vùng via (tránh bị checkpoint)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>TikTok cần SIM:</strong> TikTok detect SIM card → nên dùng eSIM US (Airalo ~$5) hoặc nuôi trên phone không SIM + VPN US</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1; margin-top: 10px;"><strong>VPN khuyên dùng:</strong></li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Residential proxy (tốt nhất):</strong> IPRoyal, Bright Data, Smartproxy — IP thật của dân US, không bị detect</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>VPN thường:</strong> NordVPN, Surfshark, ExpressVPN — OK cho lướt, không lý tưởng cho đăng bài lâu dài</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>eSIM US:</strong> Airalo, Holafly — $5-10/tháng, giải quyết vấn đề TikTok detect SIM</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PLATFORM-SPECIFIC IP BEHAVIOR -->
+  <div class="card" style="margin-bottom: 20px;">
+    <h4 style="color: #22d3ee; margin-bottom: 12px;">📱 Mỗi Nền Tảng Xử Lý IP Khác Nhau</h4>
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Nền tảng</th><th>IP quan trọng?</th><th>Cách reach EN từ VN</th><th>Cần VPN?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Facebook Reels</strong></td>
+          <td>Thấp — ưu tiên ngôn ngữ content</td>
+          <td>100% EN caption + hashtag + engage EN. Cài app = English. Đăng giờ peak US.</td>
+          <td style="color: #4ade80;">Không bắt buộc. VPN khi tạo page mới nếu mua via ngoại.</td>
+        </tr>
+        <tr>
+          <td><strong>Instagram Reels</strong></td>
+          <td>Thấp — tương tự FB</td>
+          <td>100% EN. Follow/engage EN accounts. Hashtag EN chuẩn. IG ít phụ thuộc IP nhất.</td>
+          <td style="color: #4ade80;">Không bắt buộc.</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube Shorts</strong></td>
+          <td>Rất thấp — SEO + language quyết định</td>
+          <td>Title + Description + Tags tiếng Anh. YouTube phân phối theo search intent, không IP.</td>
+          <td style="color: #4ade80;">Không cần.</td>
+        </tr>
+        <tr>
+          <td><strong>TikTok</strong></td>
+          <td style="color: #fbbf24;"><strong>CAO — detect SIM + IP</strong></td>
+          <td>Cần eSIM US + VPN US khi tạo account. Sau đó nội dung EN sẽ tự reach EN audience.</td>
+          <td style="color: #f87171;"><strong>Nên dùng khi tạo acc. eSIM US quan trọng.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== WORKFLOW TỔNG HỢP PC→PHONE ==================== -->
+
+<div class="section" id="workflow">
+  <h3 class="section-title">⚡ Workflow Tổng Hợp: PC Edit → Phone Đăng</h3>
+  <p class="section-desc">Tốc độ tối đa: edit hàng loạt trên PC, đẩy sang phone, đăng từ app mobile gốc (reach tốt nhất).</p>
+
+  <div class="pipe-container">
+    <div class="pipe">
+      <div class="pipe-step purple">
+        <h5>PC: Scout</h5>
+        <p>Lướt TikTok/IG/YT<br>trên browser PC<br>Download source</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step purple">
+        <h5>PC: Edit</h5>
+        <p>CapCut Desktop<br>Batch edit 5-10<br>video/session</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step yellow">
+        <h5>PC: Caption</h5>
+        <p>ChatGPT viết<br>caption + hashtag<br>EN cho mỗi video</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step">
+        <h5>Chuyển File</h5>
+        <p>USB cable / Google<br>Drive / AirDrop<br>→ Phone</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step green">
+        <h5>Phone: Đăng</h5>
+        <p>Mở app chính thức<br>Paste caption<br>Đăng từ mobile</p>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step green">
+        <h5>Phone: Engage</h5>
+        <p>Ở lại app 15p<br>Reply comment<br>Like/follow</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top: 20px;">
+    <div class="card">
+      <h4 style="color: #a78bfa;">🖥️ Điều Khiển Phone Từ PC (Tăng Tốc)</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>scrcpy (Android — FREE):</strong> Mirror + điều khiển phone từ PC qua USB. Thao tác bàn phím/chuột → paste caption nhanh, đăng bài nhanh. Tải: github.com/Genymobile/scrcpy</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Vysor (Android):</strong> Tương tự scrcpy nhưng có GUI đẹp hơn, bản free đủ dùng</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>AirDroid (Android — wireless):</strong> Không cần dây, quản lý file + mirror qua WiFi</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>ApowerMirror (iPhone + Android):</strong> Mirror iPhone lên PC, hỗ trợ cả 2 hệ</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1; margin-top: 8px;"><strong>Lưu ý:</strong> Vẫn đăng từ app mobile trên phone thật — chỉ dùng PC để điều khiển/paste text nhanh. Algorithm vẫn thấy post từ mobile app.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #a78bfa;">📋 Batch Posting — Chuẩn Bị Trước</h4>
+      <ul style="list-style: none; margin-top: 8px;">
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cuối tuần:</strong> Edit 7-14 video trên PC → lưu vào folder theo ngày (Mon, Tue, Wed...)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cuối tuần:</strong> Viết sẵn 7-14 caption EN trên Google Docs / Notion (copy-paste khi đăng)</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Chuyển file:</strong> Sync toàn bộ tuần vào Google Drive → auto-download trên phone</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Hàng ngày:</strong> Mở phone → chọn video ngày hôm nay → paste caption → đăng. Chỉ mất 5 phút/bài</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1;">▸ <strong>Cross-post:</strong> Đăng FB Reels → IG Reels → YT Shorts cùng video, caption tinh chỉnh theo platform</li>
+        <li style="padding: 5px 0; font-size: 0.86rem; color: #cbd5e1; margin-top: 8px;"><strong>Tổng thời gian đăng:</strong> ~15 phút/ngày (3 bài × 5 phút) nếu đã chuẩn bị sẵn</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-banner nb-orange" style="margin-top: 16px;">
+    <div class="n-icon">!</div>
+    <div class="n-text"><strong>KHÔNG dùng tool schedule cho FB/IG Reels:</strong> Meta Creator Studio, Later, Buffer — reach thấp hơn đáng kể so với đăng trực tiếp từ app mobile. YouTube Studio thì OK để schedule Shorts. Luôn đăng FB + IG bằng tay từ app.</div>
+  </div>
+</div>
+
+<!-- ==================== CHECKLIST TUẦN 1 ==================== -->
+
+<div class="section" id="checklist">
+  <h3 class="section-title">⚙️ Checklist Tuần 1</h3>
+  <div class="grid-2">
+    <div class="card">
+      <h4 style="color: #60a5fa;">📱 Setup Kênh (Ngày 1-2)</h4>
+      <ul class="checklist" style="list-style: none;">
+        <li>☐ Chọn tên brand (dễ đọc cho người EN, vibe "gentleman")</li>
+        <li>☐ Tạo FB Page + FB Group</li>
+        <li>☐ Tạo IG (cùng handle)</li>
+        <li>☐ Tạo YouTube channel</li>
+        <li>☐ Avatar + cover đồng nhất tất cả kênh</li>
+        <li>☐ Bio: 1 câu hook + link in bio (Linktree)</li>
+        <li>☐ Nuôi TikTok cá nhân (follow 30 creator men's fashion)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color: #34d399;">🔍 Xây Kho Content (Ngày 3-7)</h4>
+      <ul class="checklist" style="list-style: none;">
+        <li>☐ Tạo Swipe File folder (Google Drive / Notion)</li>
+        <li>☐ Lưu 50-100 video viral từ 6 nguồn</li>
+        <li>☐ Phân tích 20 video → rút format template</li>
+        <li>☐ Download + edit 14-21 video từ source viral</li>
+        <li>☐ Tạo 20-30 ảnh AI fashion mockup (Midjourney/Flux)</li>
+        <li>☐ Tạo Style Guide PDF (Canva) — lead magnet</li>
+        <li>☐ Nghiên cứu 10 đối thủ → ghi chú format thắng</li>
+        <li>☐ Setup Google Sheet: content tracker + metrics</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CẢNH BÁO ==================== -->
+
+<div class="section" id="warnings">
+  <h3 class="section-title">⚠️ Cần Tránh — Thị Trường Western</h3>
+  <div class="warnings">
+    <div class="warning-item">❌ Repost nguyên video gốc không edit → copyright strike + mất uy tín</div>
+    <div class="warning-item">❌ AI mockup quá rõ ràng là fake → chỉ dùng cho listing/post bán, không cho Reels</div>
+    <div class="warning-item">❌ Caption tiếng Anh "robotic" → dùng ChatGPT check cho tự nhiên</div>
+    <div class="warning-item">❌ Hard sell liên tục → audience EN unfollow rất nhanh</div>
+    <div class="warning-item">❌ Đăng không đều → algorithm hạ reach</div>
+    <div class="warning-item">❌ Không reply comment → engagement thấp → reach giảm</div>
+    <div class="warning-item">❌ Quá nhiều style/niche → loãng brand identity</div>
+    <div class="warning-item">❌ Bỏ cuộc trước tháng 3 → organic cần thời gian</div>
+    <div class="warning-item">❌ Không có email list → bỏ lỡ 25-40% revenue tiềm năng</div>
+    <div class="warning-item">❌ Ignore GDPR → rủi ro pháp lý khi target EU</div>
+  </div>
+</div>
+
+<!-- ==================== DAILY ROUTINE ==================== -->
+
+<div class="section" id="daily">
+  <h3 class="section-title">⏰ Lịch Hàng Ngày — Content Creator Routine</h3>
+  <div class="card">
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Thời gian</th><th>Hoạt động</th><th>Thời lượng</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Sáng</strong></td><td>Scout: lướt TikTok/IG/YT → lưu Swipe File</td><td>30 phút</td></tr>
+        <tr><td><strong>Sáng</strong></td><td>Đăng video #1 (giờ peak: 8AM EST = 7PM VN)</td><td>10 phút</td></tr>
+        <tr><td><strong>Trưa</strong></td><td>Đăng video #2 (giờ peak: 12PM EST = 11PM VN)</td><td>10 phút</td></tr>
+        <tr><td><strong>Chiều</strong></td><td>Download source + edit video cho ngày mai (cắt ghép, text EN, nhạc)</td><td>60 phút</td></tr>
+        <tr><td><strong>Tối</strong></td><td>Đăng video #3 (giờ peak: 7PM EST = 6AM+1 VN)</td><td>10 phút</td></tr>
+        <tr><td><strong>Tối</strong></td><td>Engage: reply comment, like, tương tác Group</td><td>30 phút</td></tr>
+        <tr><td><strong>Cuối tuần</strong></td><td>Batch edit: download + edit 7-14 video từ source cho tuần sau + tạo AI mockup bán hàng</td><td>3-4 giờ</td></tr>
+        <tr><td colspan="2" style="color: #60a5fa; font-weight: 600;">TỔNG THỜI GIAN HÀNG NGÀY</td><td style="color: #4ade80; font-weight: 600;">~2.5 giờ/ngày</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-banner nb-orange" style="margin-top: 16px;">
+    <div class="n-icon">!</div>
+    <div class="n-text"><strong>Lưu ý múi giờ:</strong> Audience EN ở US/UK/AU. Giờ peak posting: 8AM EST · 12PM EST · 7PM EST. Từ Việt Nam, schedule bài đăng vào đêm/sáng sớm hoặc dùng tool lên lịch (Later, Buffer, Creator Studio).</div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  Hướng Đi v4 — Organic Content Machine · Thời trang nam trung niên 35-60 · Target US/UK/AU/EU · FB + IG + YouTube · Không Ads · Generated 2026-04-14
+</footer>
+
+</body>
+</html>
