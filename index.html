@@ -1420,24 +1420,41 @@
 (function() {
   const sidebar = document.getElementById('sidebarNav');
   const items = sidebar.querySelectorAll('.snav-item');
-  const sectionIds = Array.from(items).map(i => i.dataset.section);
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  // Collect all sections by their DOM order (not sidebar order)
+  const allIds = Array.from(items).map(i => i.dataset.section);
+  const sectionsInDom = allIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean)
+    .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+
+  // Cache offsets (recalc on resize)
+  let offsets = [];
+  function calcOffsets() {
+    const scrollY = window.scrollY;
+    offsets = sectionsInDom.map(el => ({
+      id: el.id,
+      top: el.getBoundingClientRect().top + scrollY
+    }));
+  }
+  calcOffsets();
+  window.addEventListener('resize', calcOffsets);
 
   // Show sidebar after scrolling past hero
   function checkVisibility() {
     sidebar.classList.toggle('hidden', window.scrollY < 300);
   }
 
-  // Highlight active section
+  // Highlight active section — find the last section whose top has been scrolled past
   function updateActive() {
-    let current = '';
-    const offset = window.innerHeight * 0.3;
-    for (const section of sections) {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= offset) current = section.id;
+    const scrollPos = window.scrollY + window.innerHeight * 0.25;
+    let currentId = '';
+    for (const entry of offsets) {
+      if (scrollPos >= entry.top) currentId = entry.id;
+      else break;
     }
     items.forEach(item => {
-      item.classList.toggle('active', item.dataset.section === current);
+      item.classList.toggle('active', item.dataset.section === currentId);
     });
   }
 
@@ -1448,6 +1465,9 @@
       ticking = true;
     }
   });
+
+  // Recalc offsets after full page load (images, fonts, etc.)
+  window.addEventListener('load', () => { calcOffsets(); checkVisibility(); updateActive(); });
 
   checkVisibility();
   updateActive();
